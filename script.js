@@ -4,12 +4,32 @@ document.addEventListener('DOMContentLoaded', function() {
     const toggleSidebarBtn = document.getElementById('toggleSidebar');
     const expandSidebarBtn = document.getElementById('expandSidebar');
     const navItems = document.querySelectorAll('.nav-item');
+    const submenuItems = document.querySelectorAll('.submenu-item');
+    const allMenuItems = [...navItems, ...submenuItems];
     const contentSections = document.querySelectorAll('.content-section');
     const contentTitle = document.getElementById('content-title');
+    const submenus = document.querySelectorAll('.with-submenu');
 
     // Состояние боковой панели
     let isSidebarCollapsed = false;
     let isMobile = window.innerWidth <= 768;
+
+    // Функция отображения контента
+    function showContent(contentId, itemText) {
+        // Обновляем заголовок
+        contentTitle.textContent = itemText;
+
+        // Скрываем все разделы контента
+        contentSections.forEach(section => {
+            section.classList.remove('active');
+        });
+
+        // Показываем выбранный раздел
+        const activeSection = document.getElementById(contentId);
+        if (activeSection) {
+            activeSection.classList.add('active');
+        }
+    }
 
     // Проверка мобильного устройства
     function checkMobile() {
@@ -23,17 +43,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Обработчик изменения размера окна
     window.addEventListener('resize', checkMobile);
-    checkMobile(); // Проверить при загрузке
+    checkMobile();
 
     // Переключение боковой панели
     toggleSidebarBtn.addEventListener('click', function() {
         if (isMobile) {
-            // На мобильных просто скрываем панель
             sidebar.classList.remove('show');
         } else {
-            // На десктопе сворачиваем/разворачиваем
             sidebar.classList.toggle('collapsed');
             isSidebarCollapsed = sidebar.classList.contains('collapsed');
+
+            // Закрываем все подменю при сворачивании
+            if (isSidebarCollapsed) {
+                closeAllSubmenus();
+            }
         }
     });
 
@@ -42,32 +65,81 @@ document.addEventListener('DOMContentLoaded', function() {
         sidebar.classList.add('show');
     });
 
+    // Функция закрытия всех подменю
+    function closeAllSubmenus() {
+        document.querySelectorAll('.submenu.active').forEach(submenu => {
+            submenu.classList.remove('active');
+        });
+        document.querySelectorAll('.with-submenu.active').forEach(item => {
+            item.classList.remove('active');
+        });
+    }
+
+    // Обработка кликов по подменю
+    submenus.forEach(item => {
+        item.addEventListener('click', function(e) {
+            if (isSidebarCollapsed || isMobile) {
+                // На свернутой панели или мобильных - просто открываем раздел
+                const contentId = this.getAttribute('data-content');
+                const itemText = this.querySelector('.text').textContent;
+                showContent(contentId, itemText);
+
+                // Удаляем активный класс у всех пунктов меню
+                allMenuItems.forEach(menuItem => menuItem.classList.remove('active'));
+                // Добавляем активный класс к выбранному пункту
+                this.classList.add('active');
+            } else {
+                // На развернутой панели - открываем/закрываем подменю
+                e.stopPropagation();
+                const submenu = this.nextElementSibling;
+
+                // Закрываем другие подменю
+                document.querySelectorAll('.submenu.active').forEach(activeSubmenu => {
+                    if (activeSubmenu !== submenu) {
+                        activeSubmenu.classList.remove('active');
+                        activeSubmenu.previousElementSibling.classList.remove('active');
+                    }
+                });
+
+                // Переключаем текущее подменю
+                this.classList.toggle('active');
+                submenu.classList.toggle('active');
+            }
+        });
+    });
+
     // Обработка кликов по пунктам меню
-    navItems.forEach(item => {
-        item.addEventListener('click', function() {
-            // Удаляем активный класс у всех пунктов
-            navItems.forEach(navItem => navItem.classList.remove('active'));
+    allMenuItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.stopPropagation();
+
+            // Удаляем активный класс у всех пунктов меню
+            allMenuItems.forEach(menuItem => menuItem.classList.remove('active'));
 
             // Добавляем активный класс к выбранному пункту
             this.classList.add('active');
 
+            // Если это подпункт, активируем и родительский пункт
+            if (this.classList.contains('submenu-item')) {
+                const parentMenuItem = this.closest('.submenu').previousElementSibling;
+                if (parentMenuItem) {
+                    parentMenuItem.classList.add('active');
+                    parentMenuItem.nextElementSibling.classList.add('active');
+                }
+            }
+
             // Получаем ID контента для отображения
             const contentId = this.getAttribute('data-content');
 
-            // Обновляем заголовок
-            const itemText = this.querySelector('.text').textContent;
-            contentTitle.textContent = itemText;
-
-            // Скрываем все разделы контента
-            contentSections.forEach(section => {
-                section.classList.remove('active');
-            });
-
-            // Показываем выбранный раздел
-            const activeSection = document.getElementById(contentId);
-            if (activeSection) {
-                activeSection.classList.add('active');
+            // Получаем текст для заголовка
+            let itemText = '';
+            if (this.classList.contains('submenu-item')) {
+                itemText = this.querySelector('.text').textContent;
+            } else {
+                itemText = this.querySelector('.text').textContent;
             }
+
+            showContent(contentId, itemText);
 
             // На мобильных скрываем панель после выбора
             if (isMobile) {

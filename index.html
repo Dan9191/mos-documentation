@@ -20,33 +20,98 @@
 
         <nav class="sidebar-nav">
             <ul>
+                <!-- Введение -->
                 <li class="nav-item active" data-content="introduction">
                     <i class="fas fa-home icon"></i>
                     <span class="text">Введение</span>
                 </li>
-                <li class="nav-item" data-content="installation">
-                    <i class="fas fa-download icon"></i>
-                    <span class="text">Установка</span>
+
+                <!-- Команда -->
+                <li class="nav-item" data-content="team">
+                    <i class="fas fa-users icon"></i>
+                    <span class="text">Команда</span>
                 </li>
-                <li class="nav-item" data-content="usage">
-                    <i class="fas fa-play-circle icon"></i>
-                    <span class="text">Использование</span>
+
+                <!-- Задание -->
+                <li class="nav-item" data-content="task">
+                    <i class="fas fa-tasks icon"></i>
+                    <span class="text">Задание</span>
                 </li>
-                <li class="nav-item" data-content="api">
+
+                <!-- Глоссарий -->
+                <li class="nav-item" data-content="glossary">
+                    <i class="fas fa-book-open icon"></i>
+                    <span class="text">Глоссарий</span>
+                </li>
+
+                <!-- Сценарий использования с подменю -->
+                <li class="nav-item with-submenu" data-content="usecase">
+                    <i class="fas fa-project-diagram icon"></i>
+                    <span class="text">Сценарий использования</span>
+                    <i class="fas fa-chevron-down submenu-arrow"></i>
+                </li>
+                <div class="submenu">
+                    <ul>
+                        <li class="submenu-item" data-content="usecase-main">
+                            <i class="fas fa-circle-notch icon"></i>
+                            <span class="text">Основной сценарий</span>
+                        </li>
+                        <li class="submenu-item" data-content="usecase-alternative">
+                            <i class="fas fa-code-branch icon"></i>
+                            <span class="text">Альтернативные сценарии</span>
+                        </li>
+                        <li class="submenu-item" data-content="usecase-exceptions">
+                            <i class="fas fa-exclamation-triangle icon"></i>
+                            <span class="text">Исключительные ситуации</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Архитектура -->
+                <li class="nav-item" data-content="architecture">
+                    <i class="fas fa-sitemap icon"></i>
+                    <span class="text">Архитектура</span>
+                </li>
+
+                <!-- Безопасность -->
+                <li class="nav-item" data-content="security">
+                    <i class="fas fa-shield-alt icon"></i>
+                    <span class="text">Безопасность</span>
+                </li>
+
+                <!-- Инфраструктура с подменю -->
+                <li class="nav-item with-submenu" data-content="infrastructure">
+                    <i class="fas fa-server icon"></i>
+                    <span class="text">Инфраструктура</span>
+                    <i class="fas fa-chevron-down submenu-arrow"></i>
+                </li>
+                <div class="submenu">
+                    <ul>
+                        <li class="submenu-item" data-content="infrastructure-deployment">
+                            <i class="fas fa-rocket icon"></i>
+                            <span class="text">Деплоймент</span>
+                        </li>
+                        <li class="submenu-item" data-content="infrastructure-monitoring">
+                            <i class="fas fa-chart-line icon"></i>
+                            <span class="text">Мониторинг</span>
+                        </li>
+                        <li class="submenu-item" data-content="infrastructure-logs">
+                            <i class="fas fa-hdd icon"></i>
+                            <span class="text">Логирование</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Фронтенд -->
+                <li class="nav-item" data-content="frontend">
+                    <i class="fas fa-paint-brush icon"></i>
+                    <span class="text">Фронтенд</span>
+                </li>
+
+                <!-- Бэкенд -->
+                <li class="nav-item" data-content="backend">
                     <i class="fas fa-code icon"></i>
-                    <span class="text">API</span>
-                </li>
-                <li class="nav-item" data-content="examples">
-                    <i class="fas fa-laptop-code icon"></i>
-                    <span class="text">Примеры</span>
-                </li>
-                <li class="nav-item" data-content="faq">
-                    <i class="fas fa-question-circle icon"></i>
-                    <span class="text">FAQ</span>
-                </li>
-                <li class="nav-item" data-content="changelog">
-                    <i class="fas fa-history icon"></i>
-                    <span class="text">История изменений</span>
+                    <span class="text">Бэкенд</span>
                 </li>
             </ul>
         </nav>
@@ -66,97 +131,620 @@
         </div>
 
         <div class="content-body">
+            <!-- Введение -->
             <div id="introduction" class="content-section active">
-                <h2>Введение в проект</h2>
-                <p>Добро пожаловать в документацию моего мини-проекта. Здесь вы найдете всю необходимую информацию для начала работы.</p>
-                <p>Этот проект предназначен для демонстрации возможностей создания адаптивной документации с скрываемой боковой панелью.</p>
-                <h3>Основные возможности</h3>
+                <h2><i class="fas fa-home"></i> Введение</h2>
+                <p>Документация по проекту, созданному в рамках практической работы 2 курса магистратуры по специальности "Разработка программного обеспечения" НИЯУ МИФИ.</p>
+
+                <h3>Цель проекта</h3>
+                <p>Создание современного веб-приложения для решения задачи обеспечения полного цикла заказа и строительства объектов индивидуального жилищного строительства.</p>
+
+                <h3>Технологический стек</h3>
+                <div class="tech-stack">
+                    <div class="tech-item">
+                        <span class="tech-label">FRONTEND:</span>
+                        <span class="tech-value">React, JavaScript</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-label">BACKEND:</span>
+                        <span class="tech-value">Java 21, Spring boot</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-label">DATABASE:</span>
+                        <span class="tech-value">Postgresql, Flyway</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-label">SECURITY:</span>
+                        <span class="tech-value">Spring Security, OAuth2, Keycloak</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-label">TEST:</span>
+                        <span class="tech-value">JUnit, Mockito</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-label">DOCS:</span>
+                        <span class="tech-value">Swagger, OpenAPI</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-label">OBSERVABILITY:</span>
+                        <span class="tech-value">Grafana, Prometheus, Loki</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-label">Инфраструктура:</span>
+                        <span class="tech-value">GitHub Actions, github, gitlab, k8s, Argo cd</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Команда -->
+            <div id="team" class="content-section">
+                <h2><i class="fas fa-users"></i> Команда</h2>
+                <p>Проект разрабатывается командой из 5 человек с распределением ролей:</p>
+
+                <div class="team-grid">
+                    <div class="team-member">
+                        <h3>Алла</h3>
+                        <p class="role">Тимлид/разработка</p>
+                        <a href="https://github.com/alladavletshina" target="_blank" class="git">github.com/alladavletshina</a>
+                    </div>
+                    <div class="team-member">
+                        <h3>Данис</h3>
+                        <p class="role">Архитектура/инфраструктура/разработка</p>
+                        <a href="https://github.com/Dan9191" target="_blank" class="git">github.com/Dan9191</a>
+                    </div>
+                    <div class="team-member">
+                        <h3>Виталий</h3>
+                        <p class="role">БД/разработка</p>
+                        <a href="https://github.com/xRay1337" target="_blank" class="git">github.com/xRay1337</a>
+                    </div>
+                    <div class="team-member">
+                        <h3>Михаил</h3>
+                        <p class="role">Фронтенд</p>
+                        <a href="https://github.com/OgBludo" target="_blank" class="git">github.com/OgBludo</a>
+                    </div>
+                    <div class="team-member">
+                        <h3>Алина</h3>
+                        <p class="role">Презентация</p>
+                        <a href="https://github.com/AlinDev8" target="_blank" class="git">github.com/AlinDev8</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Задание -->
+            <div id="task" class="content-section">
+                <h2><i class="fas fa-tasks"></i> Задание</h2>
+                <p>Партнёр предлагает разработать мобильное приложение или сайт, которые обеспечивают полный цикл заказа и строительства объектов индивидуального жилищного строительства (ИЖС).</p>
+
+                <p>Сервис должен поддерживать весь путь заказчика — от выбора проекта до завершения строительства и подписания финальных документов.</p>
+
+                <h3>Целевая аудитория</h3>
                 <ul>
-                    <li>Адаптивный дизайн</li>
-                    <li>Скрываемая боковая панель</li>
-                    <li>Быстрая навигация по разделам</li>
-                    <li>Чистый и понятный интерфейс</li>
+                    <li>Люди, которые хотят заказать строительство объекта ИЖС.</li>
+                    <li>Пользователи, которым нужен единый цифровой инструмент для выбора проекта, согласования документов, наблюдения за ходом стройки и завершения всех формальных процедур.</li>
+                </ul>
+
+
+                <h3>Основные задачи на хакатоне</h3>
+                <p>Команда должна реализовать пользовательский путь, описанный в брифе.</p>
+                <ol>
+                    <li>
+                        <h4>Выбор проекта.</h4>
+                        <p>Пользователь заходит в систему, выбирает проект и отправляет запрос на его строительство.</p>
+                    </li>
+                    <li>
+                        <h4>Согласование документации.</h4>
+                        <p>Пользователь проходит этап согласования документов через систему.</p>
+                    </li>
+                    <li>
+                        <h4>Этап строительства.</h4>
+                        <ul>
+                            <li>Отображение видеопотока со стройки.</li>
+                            <li>Общение в чате со специалистом.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h4>Завершение строительства.</h4>
+                        <p>Подписание всех оставшихся документов после окончания строительства.</p>
+                    </li>
+                </ol>
+
+                <h3>Ожидаемый результат</h3>
+                <p>По итогам выполнения кейса участники должны представить:</p>
+                <ol>
+                    <li>Мобильное приложение или сайт, которые реализуют описанный путь пользователя: выбор проекта → согласование документации → просмотр видеопотока и чат → подписание документов.</li>
+                    <li>Прототип, демонстрацию или рабочую версию, в которой этот путь можно воспроизвести.</li>
+                </ol>
+
+                <p>Участники должны учитывать все этапы, указанные в брифе.</p>
+
+                <h3>Рекомендации для участников</h3>
+                <ol>
+                    <li>Внимательно придерживайтесь четырёх этапов пользовательского пути, указанного партнёром.</li>
+                    <li>Используйте аналог как пример структуры и визуального решения.</li>
+                    <li>Сосредоточьтесь на том, чтобы все этапы были последовательно связаны между собой.</li>
+                    <li>Обеспечьте возможность продемонстрировать путь пользователя от начала до конца.</li>
+                    <li>Не выходите за рамки брифа — реализуйте только то, что прямо указано партнёром.</li>
+                </ol>
+
+                <h3>Финальные артефакты</h3>
+                <ol>
+                    <li>Прототип мобильного приложения или сайта: отражает весь путь — выбор проекта → согласование документов → стройка (видео + чат) → подписание документов.</li>
+                    <li>Демонстрация пользовательского сценария: видео или презентация с проходом всех этапов.</li>
+                    <li>Краткое описание решения: как реализованы четыре шага из брифа.</li>
+                    <li>Набор экранов/макетов: все ключевые этапы пользовательского пути.</li>
+                </ol>
+
+            </div>
+
+            <!-- Глоссарий -->
+            <div id="glossary" class="content-section">
+                <h2><i class="fas fa-book-open"></i> Глоссарий</h2>
+                <p>Определения ключевых терминов, используемых в проекте:</p>
+
+                <div class="glossary-list">
+                    <div class="term">
+                        <h3>Клиент</h3>
+                        <p>Физическое или юридическое лицо (Заказчик), выразившее намерение заключить договор подряда на выполнение работ по индивидуальному жилищному строительству (ИЖС) с Исполнителем. </p>
+                    </div>
+
+                    <div class="term">
+                        <h3>Проект (Типовой/Архитектурный проект)</h3>
+                        <p>Утверждённый комплект проектно-сметной документации, включающий архитектурные, конструктивные и инженерные разделы, а также визуализации объекта. Является основным коммерческим предложением и базой для формирования Заказа. </p>
+                    </div>
+
+                    <div class="term">
+                        <h3>Заявка</h3>
+                        <p>Формализованное обращение Клиента, содержащее выбранный Проект и реквизиты для связи. Инициирует процесс предварительного рассмотрения возможности заключения договора.</p>
+                    </div>
+
+                    <div class="term">
+                        <h3>Статус заявки</h3>
+                        <p>Атрибут, определяющий текущее состояние обработки Заявки в рабочем процессе Компании.</p>
+                        <ul>
+                            <li>
+                                <span class="text">Создана — Заявка зарегистрирована в системе.</span>
+                            </li>
+                            <li>
+                                <span class="text">На рассмотрении — Заявка находится в работе у ответственного Менеджера.</span>
+                            </li>
+                            <li>
+                                <span class="text">По Заявке принято положительное решение, инициировано создание Заказа.</span>
+                            </li>
+                            <li>
+                                <span class="text">По Заявке принято отрицательное решение с указанием причины.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="term">
+                        <h3>Менеджер проекта</h3>
+                        <p>Уполномоченный сотрудник Компании (Исполнителя), ответственный за взаимодействие с Клиентом, администрирование коммерческих условий, координацию этапов работ и ведение документации в рамках конкретного Заказа.</p>
+                    </div>
+
+                    <div class="term">
+                        <h3>Заказ</h3>
+                        <p>Основной учётный объект, представляющий собой совокупность данных о выполняемых работах по конкретному объекту Клиента. Содержит ссылку на Проект, документацию, историю коммуникаций, данные о ходе строительства и является юридическим и финансовым отражением Договора подряда в информационной системе.</p>
+                    </div>
+
+                    <div class="term">
+                        <h3>Статус заказа</h3>
+                        <p>Атрибут, отражающий текущую фазу исполнения Заказа в соответствии с утверждённым проектом и календарным планом.</p>
+                        <ul>
+                            <li>
+                                <span class="text">Новый заказ — Заказ создан, ведутся подготовительные и организационные работы.</span>
+                            </li>
+                            <li>
+                                <span class="text">Подготовка документации — Формирование и согласование пакета разрешительной и рабочей документации.</span>
+                            </li>
+                            <li>
+                                <span class="text">Строительство — На объекте ведутся активные строительно-монтажные работы (детализируются Этапами строительства).</span>
+                            </li>
+                            <li>
+                                <span class="text">Завершение работ — Выполнены основные работы, идёт процесс финальных согласований, устранения замечаний, подготовки к сдаче.</span>
+                            </li>
+                            <li>
+                                <span class="text">Заказ закрыт — Объект сдан Клиенту, все обязательства исполнены, акты подписаны.</span>
+                            </li>
+                            <li>
+                                <span class="text">Заказ отменен — Исполнение Заказа прекращено на основании расторжения Договора.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="term">
+                        <h3>Этап строительства</h3>
+                        <p>Конкретный технологический процесс или комплекс работ в рамках статуса Заказа «Строительство». Служит для детального планирования, контроля и отчётности о ходе строительно-монтажных работ</p>
+                    </div>
+
+                    <div class="term">
+                        <h3>Перечень этапов строительства:</h3>
+                        <ul>
+                            <li>
+                                <span class="text">Подготовка участка: расчистка и разметка.</span>
+                            </li>
+                            <li>
+                                <span class="text">Земляные работы: разработка котлована и траншей.</span>
+                            </li>
+                            <li>
+                                <span class="text">Заливка фундамента.</span>
+                            </li>
+                            <li>
+                                <span class="text">Возведение стен.</span>
+                            </li>
+                            <li>
+                                <span class="text">Устройство межэтажных перекрытий и лестниц.</span>
+                            </li>
+                            <li>
+                                <span class="text">Монтаж кровли.</span>
+                            </li>
+                            <li>
+                                <span class="text">Установка окон и дверей.</span>
+                            </li>
+                            <li>
+                                <span class="text">Наружная отделка и утепление фасада.</span>
+                            </li>
+                            <li>
+                                <span class="text">Дополнительное утепление наружных стен.</span>
+                            </li>
+                            <li>
+                                <span class="text">Электромонтажные работы.</span>
+                            </li>
+                            <li>
+                                <span class="text">Сантехнические работы.</span>
+                            </li>
+                            <li>
+                                <span class="text">Монтаж отопления и вентиляции.</span>
+                            </li>
+                            <li>
+                                <span class="text">Выравнивание стен и потолков.</span>
+                            </li>
+                            <li>
+                                <span class="text">Финишная внутренняя отделка.</span>
+                            </li>
+                            <li>
+                                <span class="text">Укладка напольных покрытий.</span>
+                            </li>
+                            <li>
+                                <span class="text">Покраска и декорирование помещений.</span>
+                            </li>
+                            <li>
+                                <span class="text">Благоустройство территории.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Сценарий использования - Основной -->
+            <div id="usecase-main" class="content-section">
+                <h2><i class="fas fa-project-diagram"></i> Сценарий использования: Основной</h2>
+
+                <h3>ID: UC-001</h3>
+                <h3>Название: Регистрация нового пользователя</h3>
+
+                <h4>Актёры:</h4>
+                <ul>
+                    <li>Пользователь (незарегистрированный)</li>
+                    <li>Система</li>
+                </ul>
+
+                <h4>Предусловия:</h4>
+                <ul>
+                    <li>Пользователь находится на главной странице</li>
+                    <li>Пользователь не аутентифицирован</li>
+                </ul>
+
+                <h4>Основной поток:</h4>
+                <ol>
+                    <li>Пользователь нажимает кнопку "Регистрация"</li>
+                    <li>Система отображает форму регистрации</li>
+                    <li>Пользователь заполняет обязательные поля</li>
+                    <li>Пользователь отправляет форму</li>
+                    <li>Система проверяет данные</li>
+                    <li>Система создает учетную запись</li>
+                    <li>Система отправляет email подтверждения</li>
+                    <li>Система перенаправляет на страницу успешной регистрации</li>
+                </ol>
+
+                <h4>Постусловия:</h4>
+                <ul>
+                    <li>Создана новая учетная запись пользователя</li>
+                    <li>Отправлено письмо с подтверждением</li>
+                    <li>Пользователь может войти в систему после подтверждения email</li>
                 </ul>
             </div>
 
-            <div id="installation" class="content-section">
-                <h2>Установка</h2>
-                <p>Для установки проекта выполните следующие шаги:</p>
-                <pre><code>git clone https://github.com/yourusername/yourproject.git
-cd yourproject
-npm install</code></pre>
-                <p>Или используйте yarn:</p>
-                <pre><code>yarn install</code></pre>
+            <!-- Сценарий использования - Альтернативные -->
+            <div id="usecase-alternative" class="content-section">
+                <h2><i class="fas fa-code-branch"></i> Сценарий использования: Альтернативные</h2>
+
+                <div class="usecase-item">
+                    <h3>UC-001A: Пользователь уже существует</h3>
+                    <p><strong>Шаг:</strong> 5. Система проверяет данные</p>
+                    <p><strong>Условие:</strong> Email уже зарегистрирован</p>
+                    <p><strong>Действие:</strong> Система показывает сообщение об ошибке "Пользователь с таким email уже существует"</p>
+                </div>
+
+                <div class="usecase-item">
+                    <h3>UC-001B: Неверный формат данных</h3>
+                    <p><strong>Шаг:</strong> 5. Система проверяет данные</p>
+                    <p><strong>Условие:</strong> Некорректный формат email или слабый пароль</p>
+                    <p><strong>Действие:</strong> Система показывает соответствующие сообщения об ошибках</p>
+                </div>
             </div>
 
-            <div id="usage" class="content-section">
-                <h2>Использование</h2>
-                <p>После установки запустите проект:</p>
-                <pre><code>npm start</code></pre>
-                <p>Откройте браузер и перейдите по адресу <code>http://localhost:3000</code></p>
+            <!-- Сценарий использования - Исключения -->
+            <div id="usecase-exceptions" class="content-section">
+                <h2><i class="fas fa-exclamation-triangle"></i> Сценарий использования: Исключительные ситуации</h2>
+
+                <div class="exception-item">
+                    <h3>E-001: Сбой сервера при регистрации</h3>
+                    <p><strong>Шаг:</strong> 6. Система создает учетную запись</p>
+                    <p><strong>Ситуация:</strong> Ошибка базы данных</p>
+                    <p><strong>Обработка:</strong> Система показывает сообщение "Внутренняя ошибка сервера", логирует ошибку, предлагает повторить позже</p>
+                </div>
+
+                <div class="exception-item">
+                    <h3>E-002: Ошибка отправки email</h3>
+                    <p><strong>Шаг:</strong> 7. Система отправляет email подтверждения</p>
+                    <p><strong>Ситуация:</strong> Ошибка SMTP сервера</p>
+                    <p><strong>Обработка:</strong> Учетная запись создается, но отмечается как неподтвержденная. Система помещает email в очередь на повторную отправку</p>
+                </div>
             </div>
 
-            <div id="api" class="content-section">
-                <h2>API</h2>
-                <p>Основные методы API:</p>
+            <!-- Архитектура -->
+            <div id="architecture" class="content-section">
+                <h2><i class="fas fa-sitemap"></i> Архитектура</h2>
+
+                <h3>Общая архитектура</h3>
+                <p>Система построена по треёхуровневой клиент-серверной архитектуре, развёрнутой в Kubernetes-кластере.</p>
+
+                <img src="images/arch.png" alt="arch" style="max-width: 100%; height: auto;">
+
+                <h3>Компоненты системы</h3>
                 <table>
-                    <thead>
                     <tr>
-                        <th>Метод</th>
-                        <th>URL</th>
-                        <th>Описание</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>GET</td>
-                        <td>/api/data</td>
-                        <td>Получить данные</td>
+                        <th>Компонент</th>
+                        <th>Назначение</th>
                     </tr>
                     <tr>
-                        <td>POST</td>
-                        <td>/api/data</td>
-                        <td>Создать новый элемент</td>
+                        <td>Клиентское приложение (Frontend)</td>
+                        <td>SPA на React, обслуживаемое отдельным веб-сервером.</td>
                     </tr>
-                    </tbody>
+                    <tr>
+                        <td>Серверное приложение (Backend)</td>
+                        <td>Монолитное Spring Boot приложение на Java 21.</td>
+                    </tr>
+                    <tr>
+                        <td>Сервис аутентификации</td>
+                        <td>Keycloak, отвечающий за управление учётными записями.</td>
+                    </tr>
+                    <tr>
+                        <td>База данных</td>
+                        <td>PostgreSQL для хранения бизнес-данных.</td>
+                    </tr>
                 </table>
             </div>
 
-            <div id="examples" class="content-section">
-                <h2>Примеры</h2>
-                <p>Пример кода для использования библиотеки:</p>
-                <pre><code>import { MyLibrary } from 'my-library';
+            <!-- Безопасность -->
+            <div id="security" class="content-section">
+                <h2><i class="fas fa-shield-alt"></i> Безопасность</h2>
 
-const instance = new MyLibrary();
-instance.init();
-instance.doSomething();</code></pre>
-            </div>
+                <h3>1. Общий подход</h3>
+                <p>
+                    Все компоненты взаимодействуют по защищённым каналам связи с использованием HTTPS. Аутентификация и авторизация централизованы через сервис Keycloak.
+                </p>
 
-            <div id="faq" class="content-section">
-                <h2>Часто задаваемые вопросы</h2>
-                <div class="faq-item">
-                    <h3>Как изменить тему?</h3>
-                    <p>Используйте настройки в конфигурационном файле.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Как добавить новый модуль?</h3>
-                    <p>Создайте файл в папке modules и импортируйте его в главный файл.</p>
-                </div>
-            </div>
-
-            <div id="changelog" class="content-section">
-                <h2>История изменений</h2>
-                <h3>Версия 1.0.0 (2023-06-15)</h3>
+                <h3>2. Защита передаваемых данных</h3>
                 <ul>
-                    <li>Первоначальный выпуск</li>
-                    <li>Базовая функциональность</li>
-                    <li>Документация</li>
+                    <li>HTTPS повсеместно: Все коммуникации между компонентами шифруются с использованием TLS.</li>
+                    <li>Сертификаты: В Kubernetes-кластере настроена автоматическая выдача и обновление SSL-сертификатов (через Cert-Manager с Let's Encrypt).</li>
+                    <li>JWT-токены: Все API-запросы содержат подписанные JWT-токены в заголовке</li>
+                </ul>
+
+                <h3>3. Сервис аутентификации и авторизации (Keycloak)</h3>
+                <ul>
+                    <li><b>Realm:</b> Создан отдельный realm hackathon для изоляции окружения.</li>
+                    <li><b>Клиенты:</b>
+                        <ul>
+                            <li>hackathon-cli — клиент для веб-приложения (публичный).</li>
+                            <li>hackathon-backend — клиент для серверного приложения (конфиденциальный).</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>4. Ролевая модель (RBAC)</h3>
+                <p>Роли в Keycloak:</p>
+                <ul>
+                    <li>hackathon.user — базовая роль для клиентов</li>
+                    <li>hackathon.manager — роль для менеджеров строительной компании</li>
+                </ul>
+
+                <h4>Применение ролей:</h4>
+                <ul>
+                    <li>Роли добавляются пользователям в Keycloak администратором</li>
+                    <li>JWT токен содержит список ролей пользователя</li>
+                    <li>Backend валидирует наличие необходимых ролей для доступа к эндпоинтам</li>
+                    <li>Frontend динамически изменяет интерфейс в зависимости от ролей пользователя</li>
+                </ul>
+
+                <h4>Пример JWT токена:</h4>
+                <pre><code>{
+  "exp": 1768154817,
+  "iat": 1768154517,
+  "jti": "onrtro:1214304c-9d88-4ce5-94d7-7ac3264c0e4f",
+  "iss": "https://auth.mos-hack.ru/realms/hackathon",
+  "aud": "account",
+  "sub": "9b632fd5-6631-492e-b691-cbcc38abdb47",
+  "typ": "Bearer",
+  "azp": "hackathon-cli",
+  "sid": "5ae40795-19fb-4f71-af99-e43694838d4d",
+  "acr": "1",
+  "allowed-origins": [
+    "*"
+  ],
+  "realm_access": {
+    "roles": [
+      "offline_access",
+      "hackathon.user",
+      "uma_authorization",
+      "default-roles-hackathon"
+    ]
+  },
+  "resource_access": {
+    "account": {
+      "roles": [
+        "manage-account",
+        "manage-account-links",
+        "view-profile"
+      ]
+    }
+  },
+  "scope": "email profile",
+  "email_verified": true,
+  "roles": [
+    "ROLE_offline_access",
+    "ROLE_uma_authorization",
+    "ROLE_hackathon.user",
+    "ROLE_default-roles-hackathon",
+    "ROLE_manage-account",
+    "ROLE_view-profile",
+    "ROLE_manage-account-links"
+  ],
+  "name": "user user",
+  "preferred_username": "user",
+  "given_name": "user",
+  "family_name": "user",
+  "email": "user@mail.com"
+}</code></pre>
+            </div>
+
+            <!-- Инфраструктура - Деплоймент -->
+            <div id="infrastructure-deployment" class="content-section">
+                <h2><i class="fas fa-rocket"></i> Инфраструктура: Деплоймент</h2>
+
+                <h3>Процесс развертывания</h3>
+                <pre><code># Клонирование репозитория
+git clone https://github.com/project/repo.git
+
+# Установка зависимостей
+npm install
+
+# Сборка проекта
+npm run build
+
+# Запуск контейнеров
+docker-compose up -d
+
+# Применение миграций БД
+npm run migrate</code></pre>
+
+                <h3>Окружения</h3>
+                <ul>
+                    <li><strong>Development:</strong> Локальные машины разработчиков</li>
+                    <li><strong>Staging:</strong> Тестовый сервер, идентичный production</li>
+                    <li><strong>Production:</strong> Рабочие сервера на AWS</li>
+                </ul>
+            </div>
+
+            <!-- Инфраструктура - Мониторинг -->
+            <div id="infrastructure-monitoring" class="content-section">
+                <h2><i class="fas fa-chart-line"></i> Инфраструктура: Мониторинг</h2>
+
+                <h3>Метрики мониторинга</h3>
+                <ul>
+                    <li>Загрузка CPU, RAM, дисковой подсистемы</li>
+                    <li>Время отклика приложения</li>
+                    <li>Количество запросов в секунду</li>
+                    <li>Процент ошибок</li>
+                    <li>Доступность сервисов</li>
+                </ul>
+
+                <h3>Инструменты</h3>
+                <ul>
+                    <li><strong>Prometheus:</strong> Сбор метрик</li>
+                    <li><strong>Grafana:</strong> Визуализация метрик</li>
+                    <li><strong>ELK Stack:</strong> Логирование</li>
+                    <li><strong>Sentry:</strong> Отслеживание ошибок</li>
+                </ul>
+            </div>
+
+            <!-- Инфраструктура - Логирование -->
+            <div id="infrastructure-logs" class="content-section">
+                <h2><i class="fas fa-hdd"></i> Инфраструктура: Логирование</h2>
+
+                <h3>Стратегия резервного копирования</h3>
+                <ul>
+                    <li><strong>Ежедневно:</strong> Полный бэкап БД</li>
+                    <li><strong>Каждый час:</strong> Инкрементальный бэкап</li>
+                    <li><strong>Хранение:</strong> 30 дней локально, 1 год в холодном хранилище</li>
+                </ul>
+
+                <h3>Процедура восстановления</h3>
+                <ol>
+                    <li>Остановить приложение</li>
+                    <li>Восстановить БД из бэкапа</li>
+                    <li>Проверить целостность данных</li>
+                    <li>Запустить приложение</li>
+                    <li>Провести тестирование</li>
+                </ol>
+            </div>
+
+            <!-- Фронтенд -->
+            <div id="frontend" class="content-section">
+                <h2><i class="fas fa-paint-brush"></i> Фронтенд</h2>
+
+                <h3>Структура проекта</h3>
+                <pre><code>src/
+├── components/     # React компоненты
+├── pages/         # Страницы приложения
+├── store/         # Redux store
+├── services/      # API вызовы
+├── utils/         # Вспомогательные функции
+└── styles/        # Стили</code></pre>
+
+                <h3>Основные библиотеки</h3>
+                <ul>
+                    <li><strong>React 18:</strong> Библиотека для построения UI</li>
+                    <li><strong>TypeScript:</strong> Статическая типизация</li>
+                    <li><strong>Redux Toolkit:</strong> Управление состоянием</li>
+                    <li><strong>React Router:</strong> Маршрутизация</li>
+                    <li><strong>Axios:</strong> HTTP клиент</li>
+                    <li><strong>Material-UI:</strong> Компоненты интерфейса</li>
+                </ul>
+            </div>
+
+            <!-- Бэкенд -->
+            <div id="backend" class="content-section">
+                <h2><i class="fas fa-code"></i> Бэкенд</h2>
+
+                <h3>Структура API</h3>
+                <pre><code>GET    /api/users          # Получить список пользователей
+POST   /api/users          # Создать пользователя
+GET    /api/users/{id}     # Получить пользователя
+PUT    /api/users/{id}     # Обновить пользователя
+DELETE /api/users/{id}     # Удалить пользователя</code></pre>
+
+                <h3>Сервисы</h3>
+                <ul>
+                    <li><strong>Auth Service:</strong> Аутентификация и авторизация</li>
+                    <li><strong>User Service:</strong> Управление пользователями</li>
+                    <li><strong>Data Service:</strong> Операции с бизнес-данными</li>
+                    <li><strong>Notification Service:</strong> Отправка уведомлений</li>
+                </ul>
+
+                <h3>Базы данных</h3>
+                <ul>
+                    <li><strong>PostgreSQL:</strong> Основное хранилище данных</li>
+                    <li><strong>Redis:</strong> Кэширование, сессии</li>
+                    <li><strong>Elasticsearch:</strong> Полнотекстовый поиск</li>
                 </ul>
             </div>
         </div>
 
         <div class="content-footer">
-            <p>© 2023 Мой мини-проект. Все права защищены.</p>
+            <p>Документация обновлена 11.01.2026</p>
         </div>
     </main>
 </div>
