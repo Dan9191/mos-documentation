@@ -6,6 +6,7 @@
     <title>Документация проекта</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -423,25 +424,245 @@
             <!-- Сценарий использования Описание -->
             <div id="usecase" class="content-section">
                 <h2><i class="fas fa-globe"></i> Сценарий использования: Общая</h2>
-                <h3>бла бла бла</h3>
+                <div class="scenario-content">
+                    <h3>Назначение системы</h3>
+                    <p>Система автоматизации строительной компании ИЖС управляет полным циклом взаимодействия с клиентами: от выбора проекта до завершения строительства.</p>
+
+                    <h3>Ключевые роли</h3>
+                    <div class="roles">
+                        <div class="role">
+                            <i class="fas fa-user"></i>
+                            <strong>Клиент</strong>
+                            <p>Заказчик, желающий построить дом</p>
+                        </div>
+                        <div class="role">
+                            <i class="fas fa-user-tie"></i>
+                            <strong>Менеджер</strong>
+                            <p>Сотрудник компании, обрабатывающий заявки и ведущий заказы</p>
+                        </div>
+                    </div>
+
+                    <h3>Основной бизнес-процесс</h3>
+                    <div class="mermaid">
+                        flowchart TD
+                        A[Клиент регистрируется] --> B[Выбирает проект]
+                        B --> C[Создает заявку<br/>с контактами]
+                        C --> D{Менеджер связывается<br/>с клиентом}
+                        D --> E[Создается заказ]
+                        D --> F[Заявка отклонена]
+                        E --> G[Выполняется строительство]
+                        G --> H[Заказ завершен]
+                    </div>
+                </div>
             </div>
 
             <!-- Сценарий использования - Пользователь -->
             <div id="usecase-main" class="content-section">
                 <h2><i class="fas fa-user"></i> Сценарий использования: Пользователь</h2>
-                <h3>бла бла бла</h3>
+                <div class="scenario-content">
+                    <h3>Основные сценарии работы с пользователями</h3>
+
+                    <div class="mermaid">
+                        flowchart TD
+                        Start[Вход на сайт] --> AuthCheck{Авторизован?}
+
+                        AuthCheck -->|Нет| Register[Регистрация]
+                        AuthCheck -->|Да| Profile[Профиль]
+
+                        Register --> Auth[Авторизация]
+                        Profile --> Edit[Редактирование]
+
+                        Auth --> RoleCheck{Роль?}
+                        RoleCheck -->|hackathon.user| Client[Клиент]
+                        RoleCheck -->|hackathon.manager| Manager[Менеджер]
+                    </div>
+
+                    <h4>1. Регистрация пользователя</h4>
+                    <div class="steps">
+                        <div class="step"><strong>1.</strong> Переход на страницу регистрации</div>
+                        <div class="step"><strong>2.</strong> Заполнение данных: email, пароль, фамилия, имя</div>
+                        <div class="step"><strong>3.</strong> Нажатие "Зарегистрироваться"</div>
+                        <div class="step"><strong>4.</strong> Происходит создание пользователя в Keycloak + сохранение профиля в БД</div>
+                        <div class="step"><strong>5.</strong> Автоматическая авторизация</div>
+                    </div>
+
+                    <h4>2. Авторизация</h4>
+                    <div class="steps">
+                        <div class="step"><strong>1.</strong> Нажатие "Войти"</div>
+                        <div class="step"><strong>2.</strong> Ввод данных</div>
+                        <div class="step"><strong>3.</strong> Отправка запроса в Keycloak</div>
+                        <div class="step"><strong>5.</strong> Получение JWT токена</div>
+                        <div class="step"><strong>6.</strong> Авторизация</div>
+                    </div>
+
+                    <h4>3. Редактирование профиля</h4>
+                    <div class="steps">
+                        <div class="step"><strong>1.</strong> Переход в "Мой профиль"</div>
+                        <div class="step"><strong>2.</strong> Нажатие "Редактировать"</div>
+                        <div class="step"><strong>3.</strong> Изменение данных (ФИО, email)</div>
+                        <div class="step"><strong>4.</strong> Сохранение изменений</div>
+                        <div class="step"><strong>5.</strong> Обновление данных в PostgreSQL</div>
+                    </div>
+                </div>
             </div>
 
             <!-- Сценарий использования - Шаблон -->
             <div id="usecase-template" class="content-section">
                 <h2><i class="fas fa-sitemap"></i> Сценарий использования: Шаблон проекта</h2>
-                <h3>бла бла бла</h3>
+
+                <div class="scenario-content">
+                    <h3>Управление проектами</h3>
+
+                    <div class="mermaid">
+                        flowchart TD
+                        Start[Архитектурные проекты] --> Auth{Роль?}
+
+                        Auth -->|Гость/Клиент| ViewActive[Просмотр активных]
+                        ViewActive --> Select[Выбор для заявки]
+
+                        Auth -->|Менеджер| Management[Управление]
+                        Management --> Create[Создать]
+                        Management --> Edit[Редактировать]
+                        Management --> Toggle[Сменить статус]
+                        Management --> Delete[Удалить]
+
+                        Create --> Status{Статус?}
+                        Status -->|Активен| AllVisible[Виден всем]
+                        Status -->|Неактивен| OnlyManagers[Только менеджерам]
+                    </div>
+
+                    <h3>Доступ по ролям</h3>
+                    <table class="access-table">
+                        <tr>
+                            <th>Действие</th>
+                            <th>Гость</th>
+                            <th>Клиент</th>
+                            <th>Менеджер</th>
+                        </tr>
+                        <tr>
+                            <td>Просмотр активных проектов</td>
+                            <td><i class="fas fa-check text-success"></i></td>
+                            <td><i class="fas fa-check text-success"></i></td>
+                            <td><i class="fas fa-check text-success"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Просмотр неактивных</td>
+                            <td><i class="fas fa-times text-danger"></i></td>
+                            <td><i class="fas fa-times text-danger"></i></td>
+                            <td><i class="fas fa-check text-success"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Создание проекта</td>
+                            <td><i class="fas fa-times text-danger"></i></td>
+                            <td><i class="fas fa-times text-danger"></i></td>
+                            <td><i class="fas fa-check text-success"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Редактирование проекта</td>
+                            <td><i class="fas fa-times text-danger"></i></td>
+                            <td><i class="fas fa-times text-danger"></i></td>
+                            <td><i class="fas fa-check text-success"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Удаление проекта</td>
+                            <td><i class="fas fa-times text-danger"></i></td>
+                            <td><i class="fas fa-times text-danger"></i></td>
+                            <td><i class="fas fa-check text-success"></i></td>
+                        </tr>
+                    </table>
+
+                    <h4>1. Создание проекта (только менеджер)</h4>
+                    <ol>
+                        <li>Переход на главную страницу → "Создать шаблон"</li>
+                        <li>Заполнение данных: название, описание, характеристики</li>
+                        <li>Загрузка изображений и технической документации</li>
+                        <li>Указание статуса: <strong>Активен</strong> или <strong>Неактивен</strong></li>
+                        <li>Сохранение проекта</li>
+                    </ol>
+
+                    <h4>2. Редактирование проекта</h4>
+                    <ol>
+                        <li>Выбор проекта из списка</li>
+                        <li>Нажатие "Редактировать"</li>
+                        <li>Внесение изменений</li>
+                        <li>Обновление файлов при необходимости</li>
+                        <li>Сохранение изменений</li>
+                    </ol>
+
+                    <h4>3. Смена статуса</h4>
+                    <div class="status-info">
+                        <div class="status active">
+                            <strong>Активен</strong>
+                            <p>Проект виден всем пользователям, включая неавторизованных</p>
+                        </div>
+                        <div class="status inactive">
+                            <strong>Неактивен</strong>
+                            <p>Проект виден только менеджерам в административном интерфейсе</p>
+                        </div>
+                    </div>
+
+                    <h4>4. Удаление проекта</h4>
+                    <ol>
+                        <li>Выбор проекта → "Удалить"</li>
+                        <li>Подтверждение действия</li>
+                        <li>Проверка отсутствия активных заявок на проект</li>
+                        <li>Удаление проекта из системы</li>
+                    </ol>
+                </div>
             </div>
 
             <!-- Сценарий использования - заявка -->
             <div id="usecase-application" class="content-section">
                 <h2><i class="fas fa-project-diagram"></i> Сценарий использования: Заявка</h2>
-                <h3>бла бла бла</h3>
+                <div class="scenario-content">
+                    <h3>Жизненный цикл заявки</h3>
+
+                    <div class="mermaid">
+                        flowchart TD
+                        A[Создана<br/>Клиент оставил заявку] --> B[В рассмотрении<br/>Менеджер связывается]
+
+                        B --> C{Решение}
+
+                        C -->|Принято| D[Принята<br/>Создается заказ]
+                        C -->|Отклонено| E[Отклонена<br/>Заявка не принята]
+                    </div>
+
+                    <h4>1. Создание заявки (Клиент)</h4>
+                    <ol>
+                        <li>Просмотр каталога активных проектов</li>
+                        <li>Выбор проекта → "Оставить заявку"</li>
+                        <li>Передача контактных данных</li>
+                        <li>Нажатие "Отправить заявку"</li>
+                        <li>Происходит создание заявки со статусом <strong>"Создана"</strong></li>
+                        <li>Происходит добавление заявки в список новых заявок (для Менеджер)</li>
+                    </ol>
+
+                    <h4>2. Взятие в работу (Менеджер)</h4>
+                    <ol>
+                        <li>Просмотр списка новых заявок</li>
+                        <li>Выбор заявки → "Взять в работу"</li>
+                        <li>Происходит смена статуса на <strong>"В рассмотрении"</strong></li>
+                        <li><strong>Связь с клиентом</strong> по предоставленным контактам</li>
+                        <li>Уточнение деталей и обсуждение условий</li>
+                    </ol>
+
+                    <h4>3. Принятие заявки (Менеджер)</h4>
+                    <ol>
+                        <li>После согласования с клиентом</li>
+                        <li>Нажатие "Принять заявку"</li>
+                        <li>Подтверждение действия</li>
+                        <li>Происходит смена статуса на <strong>"Принята"</strong></li>
+                        <li>Происходит автоматическое создание <strong>Заказа</strong></li>
+                    </ol>
+
+                    <h4>4. Отклонение заявки (Менеджер)</h4>
+                    <ol>
+                        <li>Нажатие "Отклонить заявку"</li>
+                        <li>Подтверждение действия</li>
+                        <li>Происходит смена статуса на <strong>"Отклонена"</strong></li>
+                        <li><em>Причина отклонения обсуждается с клиентом вне системы</em></li>
+                    </ol>
+                </div>
             </div>
 
             <!-- Сценарий использования - заказ -->
@@ -457,7 +678,31 @@
                 <h3>Общая архитектура</h3>
                 <p>Система построена по трехуровневой клиент-серверной архитектуре, развёрнутой в Kubernetes-кластере.</p>
 
-                <img src="images/arch.png" alt="arch" style="max-width: 100%; height: auto;">
+                <div class="mermaid">
+                    flowchart TD
+
+                    subgraph "Серверная сторона"
+                    Backend[Backend Application<br/>Spring Boot / Java 21]
+                    Keycloak[Keycloak<br/>Сервис аутентификации]
+                    end
+
+                    subgraph "Серверная сторона"
+                    PostgreSQL[(PostgreSQL<br/>Бизнес-данные<br/>Проекты, заявки, заказы)]
+                    end
+
+                    subgraph "Клиентская сторона"
+                    Browser[Веб-браузер<br/>React SPA]
+                    end
+
+                    Browser -- "1. Аутентификация<br/>(прямой OAuth2/OIDC flow)" --> Keycloak
+                    Keycloak -- "2. Возвращает JWT токен" --> Browser
+                    Browser -- "3. Все API-запросы с JWT в заголовке" --> Backend
+                    Backend -- "4. Валидация токена<br/>(при необходимости)" --> Keycloak
+                    Backend -- "5. Работа с бизнес-данными" --> PostgreSQL
+                    Browser -- "6. Регистрация нового пользователя<br/>POST /api/users" --> Backend
+                    Backend -- "7. Создание учётной записи<br/>через Admin REST API" --> Keycloak
+                    Backend -- "8. Сохранение профиля пользователя" --> PostgreSQL
+                </div>
 
                 <h3>Компоненты системы</h3>
                 <table>
@@ -656,7 +901,13 @@
                 <h3>2.1. GitOps-архитектура</h3>
                 <p>Развертывание построено на принципах GitOps с использованием Argo CD в качестве оператора доставки. Инфраструктурный репозиторий в GitLab является "источником истины".</p>
 
-                <img src="images/dep.png" alt="arch" style="max-width: 100%; height: auto;">
+                <div class="mermaid">
+                    graph LR
+                    GitHub[GitHub Repos] --> GHCR[GHCR]
+                    GHCR --> GitLab[GitLab Infra]
+                    GitLab[GitLab Infra] --> ArgoCD[Argo CD]
+                    ArgoCD --> K8s[Kubernetes]
+                </div>
 
                 <h3>2.2. Процесс непрерывного развертывания</h3>
                 <h4>Этапы CI/CD pipeline:</h4>
@@ -772,7 +1023,8 @@
                 <pre><code>npm run dev</code></pre>
 
                 <h3>Конфигурация</h3>
-                <p>Настройки в <code>src/main/resources/application.yaml</code>:</p>
+                <p>Настройки в <code>public/auth-config.json</code>:</p>
+                <p>Настройки в <code>public/config.json</code>:</p>
                 <table>
                     <thead>
                     <tr>

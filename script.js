@@ -10,6 +10,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const contentTitle = document.getElementById('content-title');
     const submenus = document.querySelectorAll('.with-submenu');
 
+    // Инициализация Mermaid с правильными настройками
+    mermaid.initialize({
+        startOnLoad: false, // Не запускать автоматически
+        theme: 'default',
+        securityLevel: 'loose',
+        flowchart: {
+            useMaxWidth: false,
+            htmlLabels: true
+        }
+    });
+
     // Состояние боковой панели
     let isSidebarCollapsed = false;
     let isMobile = window.innerWidth <= 768;
@@ -17,7 +28,29 @@ document.addEventListener('DOMContentLoaded', function() {
     // Текущий открытый раздел
     let currentSection = 'introduction';
 
-    // Функция отображения контента
+    // Рендеринг Mermaid для активной секции
+    function renderMermaid() {
+        // Ждем небольшое время, чтобы контент успел отобразиться
+        setTimeout(() => {
+            const activeSection = document.querySelector('.content-section.active');
+            if (activeSection) {
+                const mermaidElements = activeSection.querySelectorAll('.mermaid:not(.rendered)');
+                if (mermaidElements.length > 0) {
+                    try {
+                        mermaid.init({}, mermaidElements);
+                        // Помечаем как отрендеренные
+                        mermaidElements.forEach(el => {
+                            el.classList.add('rendered');
+                        });
+                    } catch (error) {
+                        console.error('Mermaid rendering error:', error);
+                    }
+                }
+            }
+        }, 50);
+    }
+
+    // Функция отображения контента с рендерингом Mermaid
     function showContent(contentId, itemText) {
         // Обновляем заголовок
         contentTitle.textContent = itemText;
@@ -34,6 +67,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const activeSection = document.getElementById(contentId);
         if (activeSection) {
             activeSection.classList.add('active');
+            // Рендерим Mermaid для нового контента
+            renderMermaid();
         }
     }
 
@@ -196,6 +231,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const activeSection = document.getElementById(contentId);
         if (activeSection) {
             activeSection.classList.add('active');
+            // Рендерим Mermaid для начальной секции
+            setTimeout(() => {
+                renderMermaid();
+            }, 100);
         }
     }
 
@@ -203,6 +242,19 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape' && isMobile && sidebar.classList.contains('show')) {
             sidebar.classList.remove('show');
+        }
+    });
+
+    // Рендеринг Mermaid при изменении размера окна
+    window.addEventListener('resize', () => {
+        // Перерендериваем Mermaid при изменении размера
+        const activeSection = document.querySelector('.content-section.active');
+        if (activeSection) {
+            const mermaidElements = activeSection.querySelectorAll('.mermaid');
+            mermaidElements.forEach(el => {
+                el.classList.remove('rendered');
+            });
+            renderMermaid();
         }
     });
 });
