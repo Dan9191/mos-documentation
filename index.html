@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Документация проекта</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<div class="container">
+    <!-- Сайдбар с документацией -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2><i class="fas fa-book"></i> Документация</h2>
+            <button id="toggleSidebar" class="toggle-btn" title="Скрыть панель">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <ul>
+                <li class="nav-item active" data-content="introduction">
+                    <i class="fas fa-home icon"></i>
+                    <span class="text">Введение</span>
+                </li>
+                <li class="nav-item" data-content="installation">
+                    <i class="fas fa-download icon"></i>
+                    <span class="text">Установка</span>
+                </li>
+                <li class="nav-item" data-content="usage">
+                    <i class="fas fa-play-circle icon"></i>
+                    <span class="text">Использование</span>
+                </li>
+                <li class="nav-item" data-content="api">
+                    <i class="fas fa-code icon"></i>
+                    <span class="text">API</span>
+                </li>
+                <li class="nav-item" data-content="examples">
+                    <i class="fas fa-laptop-code icon"></i>
+                    <span class="text">Примеры</span>
+                </li>
+                <li class="nav-item" data-content="faq">
+                    <i class="fas fa-question-circle icon"></i>
+                    <span class="text">FAQ</span>
+                </li>
+                <li class="nav-item" data-content="changelog">
+                    <i class="fas fa-history icon"></i>
+                    <span class="text">История изменений</span>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <small>Версия 1.0.0</small>
+        </div>
+    </aside>
+
+    <!-- Основной контент -->
+    <main class="content">
+        <div class="content-header">
+            <button id="expandSidebar" class="expand-btn" title="Показать панель">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h1 id="content-title">Введение</h1>
+        </div>
+
+        <div class="content-body">
+            <div id="introduction" class="content-section active">
+                <h2>Введение в проект</h2>
+                <p>Добро пожаловать в документацию моего мини-проекта. Здесь вы найдете всю необходимую информацию для начала работы.</p>
+                <p>Этот проект предназначен для демонстрации возможностей создания адаптивной документации с скрываемой боковой панелью.</p>
+                <h3>Основные возможности</h3>
+                <ul>
+                    <li>Адаптивный дизайн</li>
+                    <li>Скрываемая боковая панель</li>
+                    <li>Быстрая навигация по разделам</li>
+                    <li>Чистый и понятный интерфейс</li>
+                </ul>
+            </div>
+
+            <div id="installation" class="content-section">
+                <h2>Установка</h2>
+                <p>Для установки проекта выполните следующие шаги:</p>
+                <pre><code>git clone https://github.com/yourusername/yourproject.git
+cd yourproject
+npm install</code></pre>
+                <p>Или используйте yarn:</p>
+                <pre><code>yarn install</code></pre>
+            </div>
+
+            <div id="usage" class="content-section">
+                <h2>Использование</h2>
+                <p>После установки запустите проект:</p>
+                <pre><code>npm start</code></pre>
+                <p>Откройте браузер и перейдите по адресу <code>http://localhost:3000</code></p>
+            </div>
+
+            <div id="api" class="content-section">
+                <h2>API</h2>
+                <p>Основные методы API:</p>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Метод</th>
+                        <th>URL</th>
+                        <th>Описание</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>GET</td>
+                        <td>/api/data</td>
+                        <td>Получить данные</td>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td>/api/data</td>
+                        <td>Создать новый элемент</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="examples" class="content-section">
+                <h2>Примеры</h2>
+                <p>Пример кода для использования библиотеки:</p>
+                <pre><code>import { MyLibrary } from 'my-library';
+
+const instance = new MyLibrary();
+instance.init();
+instance.doSomething();</code></pre>
+            </div>
+
+            <div id="faq" class="content-section">
+                <h2>Часто задаваемые вопросы</h2>
+                <div class="faq-item">
+                    <h3>Как изменить тему?</h3>
+                    <p>Используйте настройки в конфигурационном файле.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Как добавить новый модуль?</h3>
+                    <p>Создайте файл в папке modules и импортируйте его в главный файл.</p>
+                </div>
+            </div>
+
+            <div id="changelog" class="content-section">
+                <h2>История изменений</h2>
+                <h3>Версия 1.0.0 (2023-06-15)</h3>
+                <ul>
+                    <li>Первоначальный выпуск</li>
+                    <li>Базовая функциональность</li>
+                    <li>Документация</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-footer">
+            <p>© 2023 Мой мини-проект. Все права защищены.</p>
+        </div>
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
