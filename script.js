@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
         theme: 'default',
         securityLevel: 'loose',
         flowchart: {
-            useMaxWidth: false,
+            useMaxWidth: true,
             htmlLabels: true
         }
     });
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
             }
-        }, 50);
+        }, 500);
     }
 
     // Функция отображения контента с рендерингом Mermaid
