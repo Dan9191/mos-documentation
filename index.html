@@ -46,23 +46,27 @@
 
                 <!-- Сценарий использования с подменю -->
                 <li class="nav-item with-submenu" data-content="usecase">
-                    <i class="fas fa-project-diagram icon"></i>
+                    <i class="fas fa-globe"></i>
                     <span class="text">Сценарий использования</span>
                     <i class="fas fa-chevron-down submenu-arrow"></i>
                 </li>
                 <div class="submenu">
                     <ul>
                         <li class="submenu-item" data-content="usecase-main">
-                            <i class="fas fa-circle-notch icon"></i>
-                            <span class="text">Основной сценарий</span>
+                            <i class="fas fa-user"></i>
+                            <span class="text">Пользователь</span>
                         </li>
-                        <li class="submenu-item" data-content="usecase-alternative">
-                            <i class="fas fa-code-branch icon"></i>
-                            <span class="text">Альтернативные сценарии</span>
+                        <li class="submenu-item" data-content="usecase-template">
+                            <i class="fas fa-sitemap"></i>
+                            <span class="text">Архитектурный проект</span>
                         </li>
-                        <li class="submenu-item" data-content="usecase-exceptions">
-                            <i class="fas fa-exclamation-triangle icon"></i>
-                            <span class="text">Исключительные ситуации</span>
+                        <li class="submenu-item" data-content="usecase-application">
+                            <i class="fas fa-project-diagram"></i>
+                            <span class="text">Заявки</span>
+                        </li>
+                        <li class="submenu-item" data-content="usecase-order">
+                            <i class="fas fa-info-circle"></i>
+                            <span class="text">Заказы</span>
                         </li>
                     </ul>
                 </div>
@@ -416,81 +420,34 @@
                 </div>
             </div>
 
-            <!-- Сценарий использования - Основной -->
+            <!-- Сценарий использования Описание -->
+            <div id="usecase" class="content-section">
+                <h2><i class="fas fa-globe"></i> Сценарий использования: Общая</h2>
+                <h3>бла бла бла</h3>
+            </div>
+
+            <!-- Сценарий использования - Пользователь -->
             <div id="usecase-main" class="content-section">
-                <h2><i class="fas fa-project-diagram"></i> Сценарий использования: Основной</h2>
-
-                <h3>ID: UC-001</h3>
-                <h3>Название: Регистрация нового пользователя</h3>
-
-                <h4>Актёры:</h4>
-                <ul>
-                    <li>Пользователь (незарегистрированный)</li>
-                    <li>Система</li>
-                </ul>
-
-                <h4>Предусловия:</h4>
-                <ul>
-                    <li>Пользователь находится на главной странице</li>
-                    <li>Пользователь не аутентифицирован</li>
-                </ul>
-
-                <h4>Основной поток:</h4>
-                <ol>
-                    <li>Пользователь нажимает кнопку "Регистрация"</li>
-                    <li>Система отображает форму регистрации</li>
-                    <li>Пользователь заполняет обязательные поля</li>
-                    <li>Пользователь отправляет форму</li>
-                    <li>Система проверяет данные</li>
-                    <li>Система создает учетную запись</li>
-                    <li>Система отправляет email подтверждения</li>
-                    <li>Система перенаправляет на страницу успешной регистрации</li>
-                </ol>
-
-                <h4>Постусловия:</h4>
-                <ul>
-                    <li>Создана новая учетная запись пользователя</li>
-                    <li>Отправлено письмо с подтверждением</li>
-                    <li>Пользователь может войти в систему после подтверждения email</li>
-                </ul>
+                <h2><i class="fas fa-user"></i> Сценарий использования: Пользователь</h2>
+                <h3>бла бла бла</h3>
             </div>
 
-            <!-- Сценарий использования - Альтернативные -->
-            <div id="usecase-alternative" class="content-section">
-                <h2><i class="fas fa-code-branch"></i> Сценарий использования: Альтернативные</h2>
-
-                <div class="usecase-item">
-                    <h3>UC-001A: Пользователь уже существует</h3>
-                    <p><strong>Шаг:</strong> 5. Система проверяет данные</p>
-                    <p><strong>Условие:</strong> Email уже зарегистрирован</p>
-                    <p><strong>Действие:</strong> Система показывает сообщение об ошибке "Пользователь с таким email уже существует"</p>
-                </div>
-
-                <div class="usecase-item">
-                    <h3>UC-001B: Неверный формат данных</h3>
-                    <p><strong>Шаг:</strong> 5. Система проверяет данные</p>
-                    <p><strong>Условие:</strong> Некорректный формат email или слабый пароль</p>
-                    <p><strong>Действие:</strong> Система показывает соответствующие сообщения об ошибках</p>
-                </div>
+            <!-- Сценарий использования - Шаблон -->
+            <div id="usecase-template" class="content-section">
+                <h2><i class="fas fa-sitemap"></i> Сценарий использования: Шаблон проекта</h2>
+                <h3>бла бла бла</h3>
             </div>
 
-            <!-- Сценарий использования - Исключения -->
-            <div id="usecase-exceptions" class="content-section">
-                <h2><i class="fas fa-exclamation-triangle"></i> Сценарий использования: Исключительные ситуации</h2>
+            <!-- Сценарий использования - заявка -->
+            <div id="usecase-application" class="content-section">
+                <h2><i class="fas fa-project-diagram"></i> Сценарий использования: Заявка</h2>
+                <h3>бла бла бла</h3>
+            </div>
 
-                <div class="exception-item">
-                    <h3>E-001: Сбой сервера при регистрации</h3>
-                    <p><strong>Шаг:</strong> 6. Система создает учетную запись</p>
-                    <p><strong>Ситуация:</strong> Ошибка базы данных</p>
-                    <p><strong>Обработка:</strong> Система показывает сообщение "Внутренняя ошибка сервера", логирует ошибку, предлагает повторить позже</p>
-                </div>
-
-                <div class="exception-item">
-                    <h3>E-002: Ошибка отправки email</h3>
-                    <p><strong>Шаг:</strong> 7. Система отправляет email подтверждения</p>
-                    <p><strong>Ситуация:</strong> Ошибка SMTP сервера</p>
-                    <p><strong>Обработка:</strong> Учетная запись создается, но отмечается как неподтвержденная. Система помещает email в очередь на повторную отправку</p>
-                </div>
+            <!-- Сценарий использования - заказ -->
+            <div id="usecase-order" class="content-section">
+                <h2><i class="fas fa-info-circle"></i> Сценарий использования: Заказ</h2>
+                <h3>бла бла бла</h3>
             </div>
 
             <!-- Архитектура -->
@@ -620,126 +577,639 @@
 }</code></pre>
             </div>
 
+            <!-- Основной контент для "Инфраструктура" -->
+            <div id="infrastructure" class="content-section">
+                <h2><i class="fas fa-server"></i> Инфраструктура</h2>
+
+                <h3>1.1. Обзор инфраструктуры</h3>
+                <p>Система развернута в собственноручно управляемом Kubernetes-кластере на виртуальных серверах облачного провайдера Beget.com. Архитектура построена на принципах GitOps с использованием Argo CD для автоматического развертывания.</p>
+
+                <h3>1.2. Компоненты инфраструктуры</h3>
+                <h4>Вычислительные ресурсы:</h4>
+                <table>
+                    <tr>
+                        <th>Компонент</th>
+                        <th>Назначение</th>
+                    </tr>
+                    <tr>
+                        <td>Control Plane</td>
+                        <td>1 мастер-нода</td>
+                    </tr>
+                    <tr>
+                        <td>Worker Nodes</td>
+                        <td>2 worker-ноды для запуска рабочих нагрузок.</td>
+                    </tr>
+                </table>
+                <h4>Сервисы инфраструктуры:</h4>
+                <table>
+                    <tr>
+                        <th>Компонент</th>
+                        <th>Назначение</th>
+                    </tr>
+                    <tr>
+                        <td>Argo CD</td>
+                        <td>GitOps-оператор для непрерывного развертывания</td>
+                    </tr>
+                    <tr>
+                        <td>Cert-Manager</td>
+                        <td>Автоматическое управление TLS-сертификатами от Let's Encrypt</td>
+                    </tr>
+                    <tr>
+                        <td>PostgreSQL</td>
+                        <td>База данных приложения (StatefulSet)</td>
+                    </tr>
+                    <tr>
+                        <td>Keycloak</td>
+                        <td>Сервис аутентификации и авторизации</td>
+                    </tr>
+                </table>
+
+
+                <h4>Мониторинг и логирование:</h4>
+                <table>
+                    <tr>
+                        <th>Компонент</th>
+                        <th>Назначение</th>
+                    </tr>
+                    <tr>
+                        <td>Prometheus:</td>
+                        <td>Сбор и хранение метрик</td>
+                    </tr>
+                    <tr>
+                        <td>Alloy</td>
+                        <td>Агент для сбора и передачи логов в Loki</td>
+                    </tr>
+                    <tr>
+                        <td>Loki</td>
+                        <td>Хранение логов</td>
+                    </tr>
+                    <tr>
+                        <td>Grafana</td>
+                        <td>Агент для сбора и передачи логов в Loki</td>
+                    </tr>
+                </table>
+
+            </div>
+
             <!-- Инфраструктура - Деплоймент -->
             <div id="infrastructure-deployment" class="content-section">
-                <h2><i class="fas fa-rocket"></i> Инфраструктура: Деплоймент</h2>
+                <h3>2.1. GitOps-архитектура</h3>
+                <p>Развертывание построено на принципах GitOps с использованием Argo CD в качестве оператора доставки. Инфраструктурный репозиторий в GitLab является "источником истины".</p>
 
-                <h3>Процесс развертывания</h3>
-                <pre><code># Клонирование репозитория
-git clone https://github.com/project/repo.git
+                <img src="images/dep.png" alt="arch" style="max-width: 100%; height: auto;">
 
-# Установка зависимостей
-npm install
+                <h3>2.2. Процесс непрерывного развертывания</h3>
+                <h4>Этапы CI/CD pipeline:</h4>
+                <ol>
+                    <li>
+                        <p></p><b>Разработка</b> → Push кода в GitHub репозиторий</p>
+                    </li>
+                    <li>
+                        <b>CI Pipeline (GitHub Actions):</b>
+                        <ul>
+                            <li>Сборка приложения</li>
+                            <li>Запуск тестов</li>
+                            <li>Сборка Docker-образа</li>
+                            <li>Пуш образа в GitHub Container Registry</li>
+                            <li>Автоматическое обновление тега образа в GitLab репозитории</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>CD Pipeline (Argo CD):</b>
+                        <ul>
+                            <li>Обнаружение изменений в GitLab репозитории</li>
+                            <li>Синхронизация состояния кластера с манифестами</li>
+                            <li>Развертывание нового образа в Kubernetes</li>
+                            <li>Health-чеки и автоматический rollback при неудаче</li>
+                        </ul>
+                    </li>
+                </ol>
 
-# Сборка проекта
-npm run build
-
-# Запуск контейнеров
-docker-compose up -d
-
-# Применение миграций БД
-npm run migrate</code></pre>
-
-                <h3>Окружения</h3>
+                <h3>2.3. Переменные окружения и секреты</h3>
                 <ul>
-                    <li><strong>Development:</strong> Локальные машины разработчиков</li>
-                    <li><strong>Staging:</strong> Тестовый сервер, идентичный production</li>
-                    <li><strong>Production:</strong> Рабочие сервера на AWS</li>
+                    <li><b>GitHub Actions Secrets:</b> Токены для доступа к GitLab и GHCR</li>
+                    <li><b>Kubernetes Secrets:</b> Хранятся в зашифрованном виде в кластере</li>
+                    <li><b>ConfigMaps:</b> Конфигурации приложений, управляемые через Git</li>
                 </ul>
+
+
             </div>
 
             <!-- Инфраструктура - Мониторинг -->
             <div id="infrastructure-monitoring" class="content-section">
                 <h2><i class="fas fa-chart-line"></i> Инфраструктура: Мониторинг</h2>
 
-                <h3>Метрики мониторинга</h3>
+                <img src="images/prom.png" alt="arch" style="max-width: 100%; height: auto;">
+                <h3>3.1. Архитектура мониторинга</h3>
+                <p>Система мониторинга построена на стеке Prometheus + Grafana с кастомными дашбордами для наблюдения за состоянием приложения и инфраструктуры.</p>
+
+                <h3>3.2. Компоненты мониторинга</h3>
+                <h4>3.2.1. Сбор метрик:</h4>
                 <ul>
-                    <li>Загрузка CPU, RAM, дисковой подсистемы</li>
-                    <li>Время отклика приложения</li>
-                    <li>Количество запросов в секунду</li>
-                    <li>Процент ошибок</li>
-                    <li>Доступность сервисов</li>
+                    <li><b>Prometheus:</b> Основной сервер сбора метрик</li>
+                    <li><b>Micrometer:</b> Интеграция с Spring Boot приложением</li>
+                    <li><b>Kubernetes Metrics API:</b> Метрики кластера и нод</li>
                 </ul>
 
-                <h3>Инструменты</h3>
+                <h4>3.2.2. Конфигурация мониторинга бэкенда:</h4>
                 <ul>
-                    <li><strong>Prometheus:</strong> Сбор метрик</li>
-                    <li><strong>Grafana:</strong> Визуализация метрик</li>
-                    <li><strong>ELK Stack:</strong> Логирование</li>
-                    <li><strong>Sentry:</strong> Отслеживание ошибок</li>
+                    <li>Включена зависимость: io.micrometer:micrometer-registry-prometheus</li>
+                    <li>Endpoint: /actuator/prometheus доступен только изнутри кластера</li>
+                </ul>
+
+                <h3>3.3. Дашборды Grafana</h3>
+                <h4>3.3.1. Импортированные дашборды:</h4>
+                <ul>
+                    <li><b>ID 4701:</b> JVM (Micrometer)" для мониторинга Spring Boot приложения</li>
+                    <li><b>ID 3119 :</b> Дашборд для мониторинга кластера</li>
                 </ul>
             </div>
 
             <!-- Инфраструктура - Логирование -->
             <div id="infrastructure-logs" class="content-section">
                 <h2><i class="fas fa-hdd"></i> Инфраструктура: Логирование</h2>
+                <img src="images/logs.png" alt="arch" style="max-width: 100%; height: auto;">
+                <h3>4.1. Архитектура сбора логов</h3>
+                <p>Централизованная система логирования на базе стека Loki + Grafana + Alloy. Логи собираются со всех компонентов системы и доступны для поиска и анализа.</p>
 
-                <h3>Стратегия резервного копирования</h3>
-                <ul>
-                    <li><strong>Ежедневно:</strong> Полный бэкап БД</li>
-                    <li><strong>Каждый час:</strong> Инкрементальный бэкап</li>
-                    <li><strong>Хранение:</strong> 30 дней локально, 1 год в холодном хранилище</li>
-                </ul>
-
-                <h3>Процедура восстановления</h3>
+                <h3>4.2. Компоненты системы логирования</h3>
+                <h4>4.2.1. Alloy (агент сбора):</h4>
                 <ol>
-                    <li>Остановить приложение</li>
-                    <li>Восстановить БД из бэкапа</li>
-                    <li>Проверить целостность данных</li>
-                    <li>Запустить приложение</li>
-                    <li>Провести тестирование</li>
+                    <li>Собирает логи контейнеров</li>
+                    <li>Отправляет логи в Loki в сжатом виде</li>
                 </ol>
+
+                <h4>4.2.2. Loki (хранилище логов):</h4>
+                <ol>
+                    <li>Горизонтально масштабируемое хранилище</li>
+                    <li>Хранение логов: 7 дней</li>
+                </ol>
+
+                <h4>4.2.3. Grafana (визуализация):</h4>
+                <p>Loki datasource для поиска и анализа логов</p>
             </div>
 
             <!-- Фронтенд -->
             <div id="frontend" class="content-section">
                 <h2><i class="fas fa-paint-brush"></i> Фронтенд</h2>
 
-                <h3>Структура проекта</h3>
-                <pre><code>src/
-├── components/     # React компоненты
-├── pages/         # Страницы приложения
-├── store/         # Redux store
-├── services/      # API вызовы
-├── utils/         # Вспомогательные функции
-└── styles/        # Стили</code></pre>
+                <h3>Описание</h3>
+                <p>Сервис, реализующий клиентский слой</p>
 
-                <h3>Основные библиотеки</h3>
-                <ul>
-                    <li><strong>React 18:</strong> Библиотека для построения UI</li>
-                    <li><strong>TypeScript:</strong> Статическая типизация</li>
-                    <li><strong>Redux Toolkit:</strong> Управление состоянием</li>
-                    <li><strong>React Router:</strong> Маршрутизация</li>
-                    <li><strong>Axios:</strong> HTTP клиент</li>
-                    <li><strong>Material-UI:</strong> Компоненты интерфейса</li>
-                </ul>
+                <h3>Репозиторий</h3>
+                <p><a href="https://github.com/Dan9191/react-hackathon-demo" target="_blank">https://github.com/Dan9191/react-hackathon-demo</a></p>
+
+                <h3>Образ</h3>
+                <p>Последний образ доступен на странице <a href="https://github.com/Dan9191/react-hackathon-demo/pkgs/container/react-hackathon-demo" target="_blank">https://github.com/Dan9191/react-hackathon-demo/pkgs/container/react-hackathon-demo</a></p>
+
+                <h3>Стэк</h3>
+                <p>Требуется Node js 22.</p>
+
+                <h4>Установка зависимостей</h4>
+                <pre><code>npm install</code></pre>
+
+                <h4>Запуск</h4>
+                <pre><code>npm run dev</code></pre>
+
+                <h3>Конфигурация</h3>
+                <p>Настройки в <code>src/main/resources/application.yaml</code>:</p>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Переменная</th>
+                        <th>Значение по умолчанию</th>
+                        <th>Описание</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>KEYCLOAK_URL</td>
+                        <td>https://auth.mos-hack.ru/</td>
+                        <td>URL keycloak</td>
+                    </tr>
+                    <tr>
+                        <td>REALM</td>
+                        <td>hackathon</td>
+                        <td>Название REALM</td>
+                    </tr>
+                    <tr>
+                        <td>CLIENT_ID</td>
+                        <td>hackathon-cli</td>
+                        <td>Клиент keycloak для фронтенда</td>
+                    </tr>
+                    <tr>
+                        <td>API_BASE_URL</td>
+                        <td>https://api.mos-hack.ru</td>
+                        <td>Базовый URL бэкенда</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <h3>Ресурсы kubernetes</h3>
+
+                <h4>Argo cd</h4>
+                <pre><code>apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mos-frontend
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: **********
+    targetRevision: main
+    path: apps/mos/frontend
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: mos-frontend
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true</code></pre>
+
+                <h4>ConfigMap</h4>
+                <pre><code>apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mos-config
+  namespace: mos-frontend
+data:
+  config.json: |
+    {
+      "API_BASE_URL": "https://api.mos-hack.ru",
+      "TEMPLATES_LIST_URL": "/api/templates",
+      "TEMPLATES_CREATE_URL": "/api/templates"
+    }
+  auth-config.json: |
+    {
+      "KEYCLOAK_URL": "https://auth.mos-hack.ru/",
+      "REALM": "hackathon",
+      "CLIENT_ID": "hackathon-cli"
+    }</code></pre>
+
+                <h4>Deployment</h4>
+                <pre><code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mos-deployment
+  namespace: mos-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mos-frontend
+  template:
+    metadata:
+      labels:
+        app: mos-frontend
+    spec:
+      containers:
+        - name: mos-frontend
+          image: ghcr.io/dan9191/react-hackathon-demo:sha-11d328686b007310942d98d46fda2e334d8f5acc
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: config-volume
+              mountPath: /usr/share/nginx/html/config.json
+              subPath: config.json
+            - name: config-volume
+              mountPath: /usr/share/nginx/html/auth-config.json
+              subPath: auth-config.json
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "100m"
+            limits:
+              memory: "128Mi"
+              cpu: "200m"
+      volumes:
+        - name: config-volume
+          configMap:
+            name: mos-config
+</code></pre>
+
+                <h4>Ingress</h4>
+                <pre><code>apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mos-ingress
+  namespace: mos-frontend
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - mos-hack.ru
+      secretName: mos-frontend-tls
+  rules:
+    - host: mos-hack.ru
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: mos-service
+                port:
+                  number: 80
+</code></pre>
+
+                <h4>Kustomization</h4>
+                <pre><code>apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: mos-frontend
+resources:
+  - deployment.yaml
+  - service.yaml
+  - ingress.yaml
+  - configmap.yaml
+</code></pre>
+
+                <h4>Service</h4>
+                <pre><code>apiVersion: v1
+kind: Service
+metadata:
+  name: mos-service
+  namespace: mos-frontend
+spec:
+  selector:
+    app: mos-frontend
+  ports:
+    - port: 80
+      targetPort: 80
+  type: ClusterIP
+</code></pre>
+
             </div>
 
             <!-- Бэкенд -->
             <div id="backend" class="content-section">
-                <h2><i class="fas fa-code"></i> Бэкенд</h2>
 
-                <h3>Структура API</h3>
-                <pre><code>GET    /api/users          # Получить список пользователей
-POST   /api/users          # Создать пользователя
-GET    /api/users/{id}     # Получить пользователя
-PUT    /api/users/{id}     # Обновить пользователя
-DELETE /api/users/{id}     # Удалить пользователя</code></pre>
+                <h3>Описание</h3>
+                <p>Сервис, которые обеспечивают полный цикл заказа и строительства объектов индивидуального жилищного строительства</p>
 
-                <h3>Сервисы</h3>
-                <ul>
-                    <li><strong>Auth Service:</strong> Аутентификация и авторизация</li>
-                    <li><strong>User Service:</strong> Управление пользователями</li>
-                    <li><strong>Data Service:</strong> Операции с бизнес-данными</li>
-                    <li><strong>Notification Service:</strong> Отправка уведомлений</li>
-                </ul>
+                <h3>Репозиторий</h3>
+                <p><a href="https://github.com/Dan9191/mos" target="_blank">https://github.com/Dan9191/mos</a></p>
 
-                <h3>Базы данных</h3>
-                <ul>
-                    <li><strong>PostgreSQL:</strong> Основное хранилище данных</li>
-                    <li><strong>Redis:</strong> Кэширование, сессии</li>
-                    <li><strong>Elasticsearch:</strong> Полнотекстовый поиск</li>
-                </ul>
+                <h3>Образ</h3>
+                <p>Последний образ доступен на странице <a href="https://github.com/Dan9191/mos/pkgs/container/mos" target="_blank">https://github.com/Dan9191/mos/pkgs/container/mos</a></p>
+
+                <h3>Swagger</h3>
+                <p>Доступен по</p>
+                <p><a href="https://api.mos-hack.ru/api/swagger-ui/index.html" target="_blank">https://api.mos-hack.ru/api/swagger-ui/index.html</a></p>
+
+                <h3>Стэк</h3>
+                <p>Требуется Java 21 и Gradle.</p>
+
+                <h4>Сборка</h4>
+                <pre><code>./gradlew clean build</code></pre>
+
+                <h4>Запуск</h4>
+                <pre><code>./gradlew bootRun</code></pre>
+
+                <h3>Конфигурация</h3>
+                <p>Настройки в <code>src/main/resources/application.yaml</code>:</p>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Переменная</th>
+                        <th>Значение по умолчанию</th>
+                        <th>Описание</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>SERVER_PORT</td>
+                        <td>8091</td>
+                        <td>Порт сервиса</td>
+                    </tr>
+                    <tr>
+                        <td>SPRING_APPLICATION_NAME</td>
+                        <td>mos</td>
+                        <td>Имя приложения</td>
+                    </tr>
+                    <tr>
+                        <td>SPRING_DATASOURCE_URL</td>
+                        <td>jdbc:postgresql://localhost:5432/test?currentSchema=mos</td>
+                        <td>URL базы данных PostgreSQL</td>
+                    </tr>
+                    <tr>
+                        <td>DATASOURCE_NAME</td>
+                        <td>test</td>
+                        <td>Пользователь базы данных</td>
+                    </tr>
+                    <tr>
+                        <td>DATASOURCE_PASSWORD</td>
+                        <td>test</td>
+                        <td>Пароль базы данных</td>
+                    </tr>
+                    <tr>
+                        <td>KEYCLOAK</td>
+                        <td>http://localhost:9090/realms/hackathon</td>
+                        <td>Ссылка на сервис аутентификации</td>
+                    </tr>
+                    <tr>
+                        <td>UPLOAD_BASE_URL</td>
+                        <td>http://localhost:8091/api/files</td>
+                        <td>Шаблон для формирования ссылки на документы</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <h3>Ресурсы kubernetes</h3>
+
+                <h4>Argo cd</h4>
+                <pre><code>
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mos-backend
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: *********
+    targetRevision: main
+    path: apps/mos/backend/
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: mos-backend
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true</code></pre>
+
+                <h4>Ingres</h4>
+                <pre><code>apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mos-backend
+  namespace: mos-backend
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - api.mos-hack.ru
+      secretName: mos-backend-tls
+  rules:
+    - host: api.mos-hack.ru
+      http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: mos-backend
+                port:
+                  number: 8091</code></pre>
+
+                <h4>Kustomization</h4>
+                <pre><code>
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: mos-backend
+resources:
+  - mos-configmap.yaml
+  - mos-deployment.yaml
+  - mos-service.yaml
+  - secret.yaml
+  - ingress.yaml
+  - servicemonitor.yaml</code></pre>
+
+                <h4>ConfigMap</h4>
+                <pre><code>
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mos-backend-config
+  namespace: mos-backend
+data:
+  SERVER_PORT: "8091"
+  SPRING_APPLICATION_NAME: "mos-backend"
+  DATASOURCE_URL: "jdbc:postgresql://postgres.postgres.svc.cluster.local:5432/postgres?currentSchema=mos"
+  KEYCLOAK: "https://auth.mos-hack.ru/realms/hackathon"
+  UPLOAD_BASE_URL: "https://api.mos-hack.ru/api/files"
+  KEYCLOAK_URL: "https://auth.mos-hack.ru"
+  KEYCLOAK_REALM: "hackathon"
+  KEYCLOAK_ADMIN_CLIENT: "hackathon-backend"</code></pre>
+
+                <h4>Deployment</h4>
+                <pre><code>
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mos-backend
+  namespace: mos-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mos-backend
+  template:
+    metadata:
+      labels:
+        app: mos-backend
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8091"
+        prometheus.io/path: "/actuator/prometheus"
+    spec:
+      containers:
+        - name: mos-backend
+          image: ghcr.io/dan9191/mos:sha-92cd99c3ccf671ac1d2a9134a3b588678864110c
+          ports:
+            - containerPort: 8091
+          envFrom:
+            - configMapRef:
+                name: mos-backend-config
+            - secretRef:
+                name: mos-backend-db-secret
+          env:
+            - name: DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mos-backend-db-secret
+                  key: DATASOURCE_PASSWORD
+            - name: DATASOURCE_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: mos-backend-db-secret
+                  key: DATASOURCE_NAME
+            - name: KEYCLOAK_ADMIN_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: mos-backend-db-secret
+                  key: KEYCLOAK_ADMIN_SECRET
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "500Mi"
+            limits:
+              cpu: "1"
+              memory: "500Mi"</code></pre>
+
+                <h4>Service</h4>
+                <pre><code>apiVersion: v1
+kind: Service
+metadata:
+  name: mos-backend
+  namespace: mos-backend
+  labels:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "8091"
+spec:
+  type: ClusterIP
+  selector:
+    app: mos-backend
+  ports:
+    - name: http
+      port: 8091
+      targetPort: 8091</code></pre>
+
+                <h4>Secret</h4>
+                <pre><code>
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mos-backend-db-secret
+  namespace: mos-backend
+type: Opaque
+stringData:
+  DATASOURCE_NAME: "********"
+  DATASOURCE_PASSWORD: "********"
+  KEYCLOAK_ADMIN_SECRET: "********"</code></pre>
+
+                <h4>ServiceMonitor</h4>
+                <pre><code>
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: mos-backend-sm
+  namespace: observability
+  labels:
+    release: prometheus
+spec:
+  selector:
+    matchLabels:
+      app: mos-backend
+  endpoints:
+    - port: http
+      path: /actuator/prometheus
+      interval: 30s
+      scrapeTimeout: 5s
+      honorLabels: true
+  namespaceSelector:
+    matchNames:
+      - mos-backend</code></pre>
             </div>
         </div>
 

@@ -14,10 +14,16 @@ document.addEventListener('DOMContentLoaded', function() {
     let isSidebarCollapsed = false;
     let isMobile = window.innerWidth <= 768;
 
+    // Текущий открытый раздел
+    let currentSection = 'introduction';
+
     // Функция отображения контента
     function showContent(contentId, itemText) {
         // Обновляем заголовок
         contentTitle.textContent = itemText;
+
+        // Сохраняем текущий раздел
+        currentSection = contentId;
 
         // Скрываем все разделы контента
         contentSections.forEach(section => {
@@ -39,6 +45,16 @@ document.addEventListener('DOMContentLoaded', function() {
             sidebar.classList.remove('show');
             isSidebarCollapsed = true;
         }
+    }
+
+    // Функция закрытия всех подменю
+    function closeAllSubmenus() {
+        document.querySelectorAll('.submenu.active').forEach(submenu => {
+            submenu.classList.remove('active');
+        });
+        document.querySelectorAll('.with-submenu.active').forEach(item => {
+            item.classList.remove('active');
+        });
     }
 
     // Обработчик изменения размера окна
@@ -65,23 +81,16 @@ document.addEventListener('DOMContentLoaded', function() {
         sidebar.classList.add('show');
     });
 
-    // Функция закрытия всех подменю
-    function closeAllSubmenus() {
-        document.querySelectorAll('.submenu.active').forEach(submenu => {
-            submenu.classList.remove('active');
-        });
-        document.querySelectorAll('.with-submenu.active').forEach(item => {
-            item.classList.remove('active');
-        });
-    }
-
-    // Обработка кликов по подменю
+    // Обработка кликов по подменю (основным пунктам с вложенными)
     submenus.forEach(item => {
         item.addEventListener('click', function(e) {
+            e.stopPropagation();
+
+            const contentId = this.getAttribute('data-content');
+            const itemText = this.querySelector('.text').textContent;
+
             if (isSidebarCollapsed || isMobile) {
-                // На свернутой панели или мобильных - просто открываем раздел
-                const contentId = this.getAttribute('data-content');
-                const itemText = this.querySelector('.text').textContent;
+                // На свернутой панели или мобильных - открываем основной раздел
                 showContent(contentId, itemText);
 
                 // Удаляем активный класс у всех пунктов меню
@@ -90,8 +99,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.classList.add('active');
             } else {
                 // На развернутой панели - открываем/закрываем подменю
-                e.stopPropagation();
                 const submenu = this.nextElementSibling;
+
+                // Если кликнули на уже активное подменю, показываем основной раздел
+                if (this.classList.contains('active') && submenu.classList.contains('active')) {
+                    showContent(contentId, itemText);
+                    return;
+                }
 
                 // Закрываем другие подменю
                 document.querySelectorAll('.submenu.active').forEach(activeSubmenu => {
@@ -104,14 +118,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Переключаем текущее подменю
                 this.classList.toggle('active');
                 submenu.classList.toggle('active');
+
+                // Если открываем подменю, показываем основной раздел
+                if (this.classList.contains('active')) {
+                    showContent(contentId, itemText);
+                }
             }
         });
     });
 
-    // Обработка кликов по пунктам меню
+    // Обработка кликов по пунктам меню (обычным и подпунктам)
     allMenuItems.forEach(item => {
         item.addEventListener('click', function(e) {
             e.stopPropagation();
+
+            // Пропускаем обработку для основных пунктов с подменю
+            if (this.classList.contains('with-submenu') && !isSidebarCollapsed && !isMobile) {
+                return;
+            }
 
             // Удаляем активный класс у всех пунктов меню
             allMenuItems.forEach(menuItem => menuItem.classList.remove('active'));
