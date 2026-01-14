@@ -75,6 +75,14 @@
                             <i class="fas fa-info-circle"></i>
                             <span class="text">Заказы</span>
                         </li>
+                        <li class="submenu-item" data-content="usecase-camera">
+                            <i class="fas fa-info-circle"></i>
+                            <span class="text">Камера</span>
+                        </li>
+                        <li class="submenu-item" data-content="usecase-document">
+                            <i class="fas fa-info-circle"></i>
+                            <span class="text">Документ</span>
+                        </li>
                     </ul>
                 </div>
 
@@ -857,6 +865,45 @@
                     </ol>
 
                 </div>
+
+            <!-- Сценарий использования - камеры -->
+            <div id="usecase-camera" class="content-section">
+                <h2><i class="fas fa-info-circle"></i> Сценарий использования: Камера</h2>
+                <h4>Менеджер</h4>
+                <img src="images/camera-admin.png" alt="arch" style="max-width: 45%; height: auto;">
+                <p>У менеджера, при редактировании заказа на стадии строительства, есть возможность для:</p>
+                <ol>
+                    <li>Добавления камер</li>
+                    <li>Редактирования камер</li>
+                    <li>Удаления камер</li>
+                </ol>
+
+                <h4>Пользователь</h4>
+                <img src="images/camera-user.png" alt="arch" style="max-width: 45%; height: auto;">
+                <p>Пользователю доступен просмотр камер в странице заказа</p>
+
+            </div>
+
+            <!-- Сценарий использования - документы -->
+            <div id="usecase-document" class="content-section">
+                <h2><i class="fas fa-info-circle"></i> Сценарий использования: Документы</h2>
+                <h4>Менеджер</h4>
+                <img src="images/document-admin.png" alt="arch" style="max-width: 45%; height: auto;">
+                <p>У менеджера, при редактировании заказа, доступны следующие операции работы с документами:</p>
+                <ol>
+                    <li>Загрузка</li>
+                    <li>Скачивание</li>
+                </ol>
+
+                <h4>Пользователь</h4>
+                <img src="images/document-user.png" alt="arch" style="max-width: 45%; height: auto;">
+                <p>У пользователя на странице заказа доступны следующие операции работы с документами:</p>
+                <ol>
+                    <li>Подписание</li>
+                    <li>Просмотр</li>
+                    <li>Скачивание</li>
+                </ol>
+            </div>
 
             <!-- Архитектура -->
             <div id="architecture" class="content-section">
